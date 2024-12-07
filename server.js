@@ -26,12 +26,13 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const corsOptions = {
-    origin: [URL, 'https://inventorymaster.vercel.app', 'http://127.0.0.1:5173'],
-    credentials: true,
-};
-
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: 'https://bnt10frontend.vercel.app', // Frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
+    credentials: true, // Si usas cookies
+  })
+);
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
