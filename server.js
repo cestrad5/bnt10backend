@@ -20,6 +20,8 @@ const app = express();
 const URL = process.env.FRONTEND_URL;
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
+
+
 //Middlewares
 app.use(express.json());
 app.use(cookieParser());
@@ -76,5 +78,10 @@ if(NODE_ENV !== 'test'){
     console.log(`Server Running on port ${port}`);
   });
 };
+
+// Aquí puedes agregar los console.log
+console.log("FRONTEND_URL:", URL); // Verifica que sea 'https://bnt10frontend.vercel.app'
+console.log("NODE_ENV:", NODE_ENV); // Verifica si es 'development' o 'production'
+console.log("Server will start on port:", port); // Confirma el puerto
 
 module.exports = app;
